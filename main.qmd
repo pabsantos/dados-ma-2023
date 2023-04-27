@@ -60,10 +60,17 @@ modais_gt
 
 ### Pirâmide Etária
 
+- Considerando a soma total de óbitos entre 2011 e 2020, a faixa etária com a maior quantidade de vítimas fatais é entre 20 a 24 anos;
+- A grande maioria das vítimas fatais é do sexo masculino, representado quase 83% dos óbitos ocorridos entre 2011 e 2020
 
+```{r obitos_piramide}
+ggplotly(piramide_plot)
+```
 
 ## Frota
 
 ## Condutores Habilitados
 
 ## População
+
+## Municipalização

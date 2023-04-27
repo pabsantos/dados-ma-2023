@@ -28,7 +28,11 @@ make_obito_plot <- function() {
         theme_minimal()
 }
 
-obitos_decada <- make_obito_table() |> pull(n) |> sum()
+obitos_decada <- 
+    make_obito_table() |>
+    pull(n) |>
+    sum() |>
+    scales::number(big.mark = ".", decimal.mark = ",")
 
 populacao <- 
     read_csv2("data/populacao.csv", locale = locale(encoding = "latin1"))
@@ -109,4 +113,51 @@ modais_gt <- tabela_modais |>
         sep_mark = ".",
         dec_mark = ",",
         decimals = 0
+    )
+
+tabela_piramide_obitos <- 
+    datasus_sim |> 
+    mutate(
+        ano = year(data_ocorrencia),
+        faixa_etaria = cut(
+            idade_vitima,
+            breaks = c(
+                0, 5, 10, 15, 20, 25, 30, 35, 40,
+                45, 50, 55, 60, 65, 70, 75, 80, 100
+            ),
+            labels = c(
+                "0 a 4 anos", "5 a 9 anos", "10 a 14 anos", "15 a 19 anos",
+                "20 a 24 anos", "25 a 29 anos", "30 a 34 anos", 
+                "35 a 39 anos", "40 a 44 anos", "45 a 49 anos", 
+                "50 a 54 anos", "55 a 59 anos", "60 a 64 anos", 
+                "65 a 69 anos", "70 a 74 anos", "75 a 79 anos",
+                "Mais de 80 anos"
+            ),
+            include.lowest = TRUE,
+            right = FALSE
+        )
+    ) |> 
+    filter(ano > 2010) |> 
+    count(faixa_etaria, sexo_vitima) |> 
+    drop_na()
+
+piramide_plot <- 
+    tabela_piramide_obitos |> 
+    mutate(n = if_else(sexo_vitima == "Feminino", n * -1, n)) |> 
+    ggplot(aes(x = faixa_etaria, y = n, fill = sexo_vitima)) +
+    geom_col() +
+    coord_flip() +
+    theme_minimal() +
+    scale_y_continuous(
+        limits = c(-45000, 45000),
+        breaks = seq(-45000, 45000, 15000),
+        minor_breaks = NULL,
+        labels = c(45000, 30000, 15000, 0, 15000, 30000, 45000)
+    ) +
+    scale_fill_manual(values = c("#F05F22", "#1FA149")) +
+    labs(
+        x = "Faixa etária",
+        y = "",
+        fill = "Sexo",
+        title = "Óbitos por sexo e faixa etária (2011 a 2020)"
     )
