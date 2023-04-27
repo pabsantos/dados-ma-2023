@@ -5,7 +5,7 @@
 
 - [x] Mortes total (serie temporal e valor acumulado) 
 - [x] Mortes por modal (serie temporal e valor acumulado)
-- [ ] Pirâmide etária (acumulado)
+- [x] Pirâmide etária (acumulado)
 - [x] Indice estadual (serie temporal)
 
 ## Frota

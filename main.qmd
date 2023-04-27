@@ -20,6 +20,7 @@ library(plotly)
 library(janitor)
 library(gt)
 library(tidyverse)
+library(readxl)
 
 source("R/datasus.R")
 ```
