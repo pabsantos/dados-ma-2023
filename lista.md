@@ -3,10 +3,10 @@
 ## Dados de mortes
 *datasus 2011 a 2020*
 
-- [ ] Mortes total (serie temporal e valor acumulado) 
-- [ ] Mortes por modal (serie temporal e valor acumulado)
+- [x] Mortes total (serie temporal e valor acumulado) 
+- [x] Mortes por modal (serie temporal e valor acumulado)
 - [ ] Pirâmide etária (acumulado)
-- [ ] Indice estadual (serie temporal)
+- [x] Indice estadual (serie temporal)
 
 ## Frota
 *Renavam 2014 - 2023*
@@ -22,3 +22,7 @@
 *Estimativa IBGE 2014 - 2023*
 
 - [ ] Serie temporal da população e valor acumulado (absoluto e porcentagem)
+
+## Municipalização
+
+- [ ] Serie temporal dos valores acumulados

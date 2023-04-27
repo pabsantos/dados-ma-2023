@@ -1,0 +1,69 @@
+---
+title: "Dados Segurança Viária - MA 2023"
+format: 
+  html:
+    toc: true
+    toc-title: Conteúdo
+editor: visual
+echo: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| echo: false
+#| include: false
+
+library(kableExtra)
+library(lubridate)
+library(plotly)
+library(janitor)
+library(gt)
+library(tidyverse)
+
+source("R/datasus.R")
+```
+
+
+## Óbitos
+
+- Entre 2011 e 2020 houve um total de `r obitos_decada` óbitos como consequência de sinistros de trânsito.
+
+```{r obitos_br}
+p1 <- make_obito_plot()
+ggplotly(p1)
+```
+
+### Comparação entre Estados
+
+Considerando os índices de óbitos por 100 mil habitantes, os estados com os maiores valores são:
+
+- Mato Grosso: 32,18;
+- Tocantins: 30,64;
+- Piauí: 29,44.
+
+```{r obitos_uf}
+indice_gt
+```
+
+### Classificação por Modal
+
+- Considerando o total de óbitos entre 2011 e 2020, os modais que apresentaram as maiores quantidade de óbitos foram:
+  - Motocicleta: Quase 120 mil óbitos;
+  - Automóvel: Quase 90 mil óbitos;
+  - Pedestre: Pouco mais de 70 mil óbitos
+- Quase 80 mil óbitos foram classificados como "Outros". Isso indica uma situação grave no registro dessas declarações de óbito, em que na maioria das vezes não foi possível identificar ou ignorou-se o modal da vítima do sinistro
+
+```{r obitos_modal}
+modais_gt
+```
+
+### Pirâmide Etária
+
+
+
+## Frota
+
+## Condutores Habilitados
+
+## População
