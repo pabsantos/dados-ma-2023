@@ -8,13 +8,14 @@ editor: visual
 echo: false
 editor_options: 
   chunk_output_type: console
+reference-location: margin
+citation-location: margin
 ---
 
 ```{r}
 #| echo: false
 #| include: false
 
-library(kableExtra)
 library(lubridate)
 library(plotly)
 library(janitor)
@@ -23,12 +24,14 @@ library(tidyverse)
 library(readxl)
 
 source("R/datasus.R")
+source("R/frota.R")
 ```
-
 
 ## Óbitos
 
-- Entre 2011 e 2020 houve um total de `r obitos_decada` óbitos como consequência de sinistros de trânsito.
+-   Entre 2011 e 2020 houve um total de `r obitos_decada` óbitos como consequência de sinistros de trânsito[^1].
+
+[^1]: Dados do Ministério da Saúde, Sistema de Informações de Mortalidade (SIM)
 
 ```{r obitos_br}
 p1 <- make_obito_plot()
@@ -39,9 +42,9 @@ ggplotly(p1)
 
 Considerando os índices de óbitos por 100 mil habitantes, os estados com os maiores valores são:
 
-- Mato Grosso: 32,18;
-- Tocantins: 30,64;
-- Piauí: 29,44.
+-   Mato Grosso: 32,18;
+-   Tocantins: 30,64;
+-   Piauí: 29,44.
 
 ```{r obitos_uf}
 indice_gt
@@ -49,11 +52,11 @@ indice_gt
 
 ### Classificação por Modal
 
-- Considerando o total de óbitos entre 2011 e 2020, os modais que apresentaram as maiores quantidade de óbitos foram:
-  - Motocicleta: Quase 120 mil óbitos;
-  - Automóvel: Quase 90 mil óbitos;
-  - Pedestre: Pouco mais de 70 mil óbitos
-- Quase 80 mil óbitos foram classificados como "Outros". Isso indica uma situação grave no registro dessas declarações de óbito, em que na maioria das vezes não foi possível identificar ou ignorou-se o modal da vítima do sinistro
+-   Considerando o total de óbitos entre 2011 e 2020, os modais que apresentaram as maiores quantidade de óbitos foram:
+    -   Motocicleta: Quase 120 mil óbitos;
+    -   Automóvel: Quase 90 mil óbitos;
+    -   Pedestre: Pouco mais de 70 mil óbitos
+-   Quase 80 mil óbitos foram classificados como "Outros". Isso indica uma situação grave no registro dessas declarações de óbito, em que na maioria das vezes não foi possível identificar ou ignorou-se o modal da vítima do sinistro
 
 ```{r obitos_modal}
 modais_gt
@@ -61,14 +64,22 @@ modais_gt
 
 ### Pirâmide Etária
 
-- Considerando a soma total de óbitos entre 2011 e 2020, a faixa etária com a maior quantidade de vítimas fatais é entre 20 a 24 anos;
-- A grande maioria das vítimas fatais é do sexo masculino, representado quase 83% dos óbitos ocorridos entre 2011 e 2020
+-   Considerando a soma total de óbitos entre 2011 e 2020, a faixa etária com a maior quantidade de vítimas fatais é entre 20 a 24 anos;
+-   A grande maioria das vítimas fatais é do sexo masculino, representado quase 83% dos óbitos ocorridos entre 2011 e 2020
 
 ```{r obitos_piramide}
 ggplotly(piramide_plot)
 ```
 
 ## Frota
+
+-   Entre 2014 e 2022 houve um aumento de aproximadamente 33% na frota total do Brasil[^2]
+
+[^2]: Dados do Ministério dos Transportes, Registro Nacional de Veículos Automotores
+
+```{r frota_tabela}
+frota_gt
+```
 
 ## Condutores Habilitados
 

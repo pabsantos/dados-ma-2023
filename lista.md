@@ -11,7 +11,7 @@
 ## Frota
 *Renavam 2014 - 2023*
 
-- [ ] Evolução da frota (% de crescimento - serie temporal e valor acumulado)
+- [x] Evolução da frota (% de crescimento - serie temporal e valor acumulado)
 
 ## Condutores
 *Renach 2014 - 2023*
