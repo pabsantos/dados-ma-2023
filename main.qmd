@@ -29,11 +29,12 @@ options(scipen = 999)
 source("R/datasus.R")
 source("R/frota.R")
 source("R/condutores.R")
+source("R/populacao.R")
 ```
 
 ## Óbitos
 
--   Entre 2011 e 2020 houve um total de `r obitos_decada` óbitos como consequência de sinistros de trânsito[^1].
+-   Entre 2011 e 2020 houve um **total** de `r obitos_decada` óbitos como consequência de sinistros de trânsito[^1].
 
 [^1]: Dados do Ministério da Saúde, Sistema de Informações de Mortalidade (SIM)
 
@@ -44,7 +45,7 @@ ggplotly(p1)
 
 ### Comparação entre Estados
 
-Considerando os índices de óbitos por 100 mil habitantes, os estados com os maiores valores são:
+Considerando os índices de óbitos por 100 mil habitantes, os estados com os **maiores valores** são:
 
 -   Mato Grosso: 32,18;
 -   Tocantins: 30,64;
@@ -56,7 +57,7 @@ indice_gt
 
 ### Classificação por Modal
 
--   Considerando o total de óbitos entre 2011 e 2020, os modais que apresentaram as maiores quantidade de óbitos foram:
+-   Considerando o **total** de óbitos entre 2011 e 2020, os modais que apresentaram as **maiores quantidades** de óbitos foram:
     -   Motocicleta: Quase 120 mil óbitos;
     -   Automóvel: Quase 90 mil óbitos;
     -   Pedestre: Pouco mais de 70 mil óbitos
@@ -68,8 +69,8 @@ modais_gt
 
 ### Pirâmide Etária
 
--   Considerando a soma total de óbitos entre 2011 e 2020, a faixa etária com a maior quantidade de vítimas fatais é entre 20 a 24 anos;
--   A grande maioria das vítimas fatais é do sexo masculino, representado quase 83% dos óbitos ocorridos entre 2011 e 2020
+-   Considerando a soma total de óbitos entre 2011 e 2020, a faixa etária com a **maior quantidade** de vítimas fatais é entre 20 a 24 anos;
+-   A grande **maioria** das vítimas fatais é do sexo masculino, representado quase 83% dos óbitos ocorridos entre 2011 e 2020
 
 ```{r obitos_piramide}
 ggplotly(piramide_plot)
@@ -77,7 +78,7 @@ ggplotly(piramide_plot)
 
 ## Frota
 
--   Entre 2014 e 2022 houve um aumento de aproximadamente 33% na frota total do Brasil[^2]
+-   Entre 2014 e 2022 houve um **aumento** de aproximadamente 33% na frota total do Brasil[^2]
 
 [^2]: Dados do Ministério dos Transportes, Registro Nacional de Veículos Automotores
 
@@ -89,11 +90,11 @@ frota_gt
 
 ## Condutores Habilitados
 
--   Em 2022, o Brasil atingiu quase 80 milhões de condutores, um aumento de 28% em comparaço com 2014;[^3]
+-   Em 2022, o Brasil atingiu quase 80 milhões de condutores, um **aumento** de 28% em comparaço com 2014;[^3]
 
 -   As carteiras tipo "B-Condutor Carro", "AB-Condutor Moto/Carro" são as mais comuns;
 
--   Entre 2014 e 2022, houve um aumento de:
+-   Entre 2014 e 2022, houve um **aumento** de:
 
     -   52% na quantidade de habilitados "AB"
 
@@ -101,7 +102,7 @@ frota_gt
 
     -   30% na quantidade de habilitados "B-Condutor Carro"
 
--   Entre 2014 e 2022, houve uma redução de:
+-   Entre 2014 e 2022, houve uma **redução** de:
 
     -   46% na quantidade de habilitados "C-Condutor Caminhão"
 
@@ -121,5 +122,15 @@ gt_condutores
 ```
 
 ## População
+
+-   Entre 2014 e 2022, a populaço brasileira **cresceu** em 6%[^4]
+
+[^4]: Dados do IBGE, projeções populacionais
+
+```{r}
+#| label: pop_tabela
+
+pop_gt
+```
 
 ## Municipalização
