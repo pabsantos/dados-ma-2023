@@ -22,9 +22,13 @@ library(janitor)
 library(gt)
 library(tidyverse)
 library(readxl)
+library(readODS)
+
+options(scipen = 999)
 
 source("R/datasus.R")
 source("R/frota.R")
+source("R/condutores.R")
 ```
 
 ## Óbitos
@@ -78,10 +82,43 @@ ggplotly(piramide_plot)
 [^2]: Dados do Ministério dos Transportes, Registro Nacional de Veículos Automotores
 
 ```{r frota_tabela}
+
 frota_gt
+# ggplotly(plot_frota)
 ```
 
 ## Condutores Habilitados
+
+-   Em 2022, o Brasil atingiu quase 80 milhões de condutores, um aumento de 28% em comparaço com 2014;[^3]
+
+-   As carteiras tipo "B-Condutor Carro", "AB-Condutor Moto/Carro" são as mais comuns;
+
+-   Entre 2014 e 2022, houve um aumento de:
+
+    -   52% na quantidade de habilitados "AB"
+
+    -   36% na quantidade de habilitados "AE-Condutor Moto/Carreta"
+
+    -   30% na quantidade de habilitados "B-Condutor Carro"
+
+-   Entre 2014 e 2022, houve uma redução de:
+
+    -   46% na quantidade de habilitados "C-Condutor Caminhão"
+
+    -   37% na quantidade de habilitados "AC-Condutor Moto/Caminhão"
+
+    -   22% na quantidade de habilitados "D-Condutor ônibus"
+
+[^3]: Dados do Ministério dos Transportes, Registro Nacional de Condutores Habilitados
+
+```{r}
+#| label: cnh_tabela
+
+#ggplotly(plot_condutores)
+
+gt_condutores
+
+```
 
 ## População
 

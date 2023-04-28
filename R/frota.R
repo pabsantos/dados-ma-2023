@@ -28,3 +28,15 @@ frota_gt <- tabela_frota |>
         dec_mark = ",",
         decimals = 0
     )
+
+plot_frota <- tabela_frota |> 
+    ggplot(aes(x = ano, y = TOTAL)) +
+    geom_col(fill = "#00496D") +
+    theme_minimal() +
+    scale_x_continuous(breaks = seq(2014, 2023), minor_breaks = NULL) +
+    scale_y_continuous(minor_breaks = NULL) +
+    labs(
+        x = "",
+        y = "Frota total"
+    )
+

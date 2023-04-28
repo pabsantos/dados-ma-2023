@@ -16,7 +16,7 @@
 ## Condutores
 *Renach 2014 - 2023*
 
-- [ ] Evolução da quantidade (% de crescimento - serie temporal por tipo e a porcentagem acumulada)
+- [x] Evolução da quantidade (% de crescimento - serie temporal por tipo e a porcentagem acumulada)
 
 ## População
 *Estimativa IBGE 2014 - 2023*
