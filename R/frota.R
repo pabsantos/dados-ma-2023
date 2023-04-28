@@ -16,7 +16,7 @@ tabela_frota <- frota_total |>
     filter(ano != 2013)
 
 frota_gt <- tabela_frota |> 
-    gt() |> 
+    gt(rowname_col = "ano") |> 
     cols_label(
         ano = "Ano",
         TOTAL = "Frota",

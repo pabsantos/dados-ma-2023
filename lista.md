@@ -21,8 +21,8 @@
 ## População
 *Estimativa IBGE 2014 - 2023*
 
-- [ ] Serie temporal da população e valor acumulado (absoluto e porcentagem)
+- [x] Serie temporal da população e valor acumulado (absoluto e porcentagem)
 
 ## Municipalização
 
-- [ ] Serie temporal dos valores acumulados
+- [x] Serie temporal dos valores acumulados

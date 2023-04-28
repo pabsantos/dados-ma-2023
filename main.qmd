@@ -30,6 +30,7 @@ source("R/datasus.R")
 source("R/frota.R")
 source("R/condutores.R")
 source("R/populacao.R")
+source("R/municipalizacao.R")
 ```
 
 ## Óbitos
@@ -134,3 +135,13 @@ pop_gt
 ```
 
 ## Municipalização
+
+-   Entre 2014 e 2022 houve um aumento de 26% na quantidade de municípios que se integraram ao Sistema Nacional de Trânsito[^5]
+
+[^5]: Dados do Ministério dos Transportes, Secretaria Nacional de Trânsito
+
+```{r}
+#| label: snt_tabela
+
+gt_snt
+```
