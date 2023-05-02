@@ -114,41 +114,26 @@ modais_gt <- tabela_modais |>
         decimals = 0
     )
 
-tabela_piramide_obitos <- 
-    datasus_sim |> 
-    mutate(
-        ano = year(data_ocorrencia),
-        faixa_etaria = cut(
-            idade_vitima,
-            breaks = c(
-                0, 5, 10, 15, 20, 25, 30, 35, 40,
-                45, 50, 55, 60, 65, 70, 75, 80, 100
-            ),
-            labels = c(
-                "0 a 4 anos", "5 a 9 anos", "10 a 14 anos", "15 a 19 anos",
-                "20 a 24 anos", "25 a 29 anos", "30 a 34 anos", 
-                "35 a 39 anos", "40 a 44 anos", "45 a 49 anos", 
-                "50 a 54 anos", "55 a 59 anos", "60 a 64 anos", 
-                "65 a 69 anos", "70 a 74 anos", "75 a 79 anos",
-                "Mais de 80 anos"
-            ),
-            include.lowest = TRUE,
-            right = FALSE
-        )
-    ) |> 
-    filter(ano > 2010) |> 
-    count(faixa_etaria, sexo_vitima) |> 
+datasus_sim |>
+    filter(ano_ocorrencia > 2010) |> 
+    count(sexo_vitima) |> 
     drop_na()
 
+366096 / (77686 + 366096)
+
+
 piramide_plot <- 
-    tabela_piramide_obitos |> 
+    datasus_sim |>
+    filter(ano_ocorrencia > 2010) |> 
+    count(faixa_etaria_vitima, sexo_vitima) |> 
+    drop_na() |> 
     mutate(n = if_else(sexo_vitima == "Feminino", n * -1, n)) |> 
-    ggplot(aes(x = faixa_etaria, y = n, fill = sexo_vitima)) +
+    ggplot(aes(x = faixa_etaria_vitima, y = n, fill = sexo_vitima)) +
     geom_col() +
     coord_flip() +
     theme_minimal() +
     scale_y_continuous(
-        limits = c(-45000, 45000),
+        limits = c(-50000, 50000),
         breaks = seq(-45000, 45000, 15000),
         minor_breaks = NULL,
         labels = c(45000, 30000, 15000, 0, 15000, 30000, 45000)
@@ -158,5 +143,5 @@ piramide_plot <-
         x = "Faixa etária",
         y = "",
         fill = "Sexo",
-        title = "Óbitos por sexo e faixa etária (2011 a 2020)"
+        title = "Óbitos por sexo e faixa etária (2011 a 2022)"
     )
