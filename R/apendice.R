@@ -18,4 +18,18 @@ tab_pop_municipios <-
             "5" ~ "Centro-Oeste"
         )
     ) |> 
-    pivot_longer(`2011`:`2021`, names_to = "ano", values_to = "populacao")
+    pivot_longer(`2011`:`2021`, names_to = "ano", values_to = "populacao") |> 
+    mutate(ano = as.double(ano))
+
+obitos_municipios <- datasus_sim |> 
+    count(cod_municipio, ano_ocorrencia)
+
+tabela_obitos_municipios <- 
+    tab_pop_municipios |> 
+    left_join(
+        obitos_municipios,
+        by = join_by(cod_muni == cod_municipio, ano == ano_ocorrencia)
+    ) |> 
+    replace_na(list(n = 0)) |> 
+    rename(obitos = n) |> 
+    mutate(taxa_pop = obitos / populacao * 100000)
