@@ -49,7 +49,7 @@ ggplotly(p1)
 
 ### Comparação entre Estados
 
-Considerando os índices de óbitos por 100 mil habitantes, os estados com os **maiores valores** são:
+Considerando os índices de óbitos por 100 mil habitantes, os estados com os **maiores valores** são, em 2020:
 
 -   Mato Grosso: 32,18;
 -   Tocantins: 30,64;

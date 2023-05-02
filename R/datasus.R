@@ -66,12 +66,12 @@ tabela_indice <-
 indice_gt <- tabela_indice |>
     group_by(nome_regiao) |> 
     gt(rowname_col = "nome_uf") |> 
-    fmt_number(columns = c(`2011`:`2020`), dec_mark = ",", sep_mark = ".") |> 
+    fmt_number(columns = c(`2011`:`2022`), dec_mark = ",", sep_mark = ".") |> 
     tab_header(
         title = "Índice de Óbitos por 100 mil habitantes em cada Unidade da Federação"
     ) |> 
     data_color(
-        columns = c(`2011`:`2020`),
+        columns = c(`2011`:`2022`),
         palette = "Blues"
     )
 
