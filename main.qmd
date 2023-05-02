@@ -197,8 +197,16 @@ shinyWidgets::pickerInput(
 
 ```{r}
 #| context: server
+
 ```
 
 ### Quantidade de óbitos
+
+```{r}
+#| panel: fill
+
+print(input$locInput)
+
+```
 
 ### Taxa de óbitos por 100 mil habitantes
