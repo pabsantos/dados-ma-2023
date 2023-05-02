@@ -1,23 +1,22 @@
-load("data/datasus-sim-2020.rda")
+load("data/datasus-sim-2022.rda")
 
 make_obito_table <- function() {
     datasus_sim |> 
-        mutate(ano = year(data_ocorrencia)) |> 
-        filter(ano > 2010) |> 
-        count(ano)
+        filter(ano_ocorrencia > 2010) |> 
+        count(ano_ocorrencia)
 }
 
 make_obito_plot <- function() {
     make_obito_table() |> 
-        ggplot(aes(x = ano, y = n)) +
+        ggplot(aes(x = ano_ocorrencia, y = n)) +
         geom_col(fill = "#00496D") +
         geom_text(
-            aes(x = ano, label = n),
+            aes(x = ano_ocorrencia, label = n),
             nudge_y = -2000,
             size = 3,
             color = "white"
         ) +
-        scale_x_continuous(breaks = seq(2011, 2020, 1)) +
+        scale_x_continuous(breaks = seq(2011, 2022, 1)) +
         scale_y_continuous(limits = c(0, 50000)) +
         labs(
             x = "",

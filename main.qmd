@@ -35,7 +35,7 @@ source("R/municipalizacao.R")
 
 ## Óbitos
 
--   Entre 2011 e 2020 houve um **total** de `r obitos_decada` óbitos como consequência de sinistros de trânsito[^1].
+-   Considerando o período da primeira Década de Ação pela Segurança no Trânsito (entre 2011 e 2020), houve um **total** de `r obitos_decada` óbitos como consequência de sinistros de trânsito[^1].
 
 [^1]: Dados do Ministério da Saúde, Sistema de Informações de Mortalidade (SIM)
 
