@@ -35,9 +35,12 @@ source("R/municipalizacao.R")
 
 ## Óbitos
 
--   Considerando o período da primeira Década de Ação pela Segurança no Trânsito (entre 2011 e 2020), houve um **total** de `r obitos_decada` óbitos como consequência de sinistros de trânsito[^1].
+-   Considerando o período da primeira Década de Ação pela Segurança no Trânsito (entre 2011 e 2020), houve um **total** de 382.801 óbitos como consequência de sinistros de trânsito[^1].
+-   Considerando o período de vigência do Movimento Maio Amarelo (a partir de 2014), houve uma redução na quantidade anual de mortes em 32%, entre 2014 e 2022[^2]
 
 [^1]: Dados do Ministério da Saúde, Sistema de Informações de Mortalidade (SIM)
+
+[^2]: Os dados de 2021 são **preliminares** e os dados de 2022 são uma **prévia**. Esses números não estão consolidados e estão sujeitos a mudança.
 
 ```{r obitos_br}
 p1 <- make_obito_plot()
@@ -79,9 +82,9 @@ ggplotly(piramide_plot)
 
 ## Frota
 
--   Entre 2014 e 2022 houve um **aumento** de aproximadamente 33% na frota total do Brasil[^2]
+-   Entre 2014 e 2022 houve um **aumento** de aproximadamente 33% na frota total do Brasil[^3]
 
-[^2]: Dados do Ministério dos Transportes, Registro Nacional de Veículos Automotores
+[^3]: Dados do Ministério dos Transportes, Registro Nacional de Veículos Automotores
 
 ```{r frota_tabela}
 
@@ -91,7 +94,7 @@ frota_gt
 
 ## Condutores Habilitados
 
--   Em 2022, o Brasil atingiu quase 80 milhões de condutores, um **aumento** de 28% em comparaço com 2014;[^3]
+-   Em 2022, o Brasil atingiu quase 80 milhões de condutores, um **aumento** de 28% em comparaço com 2014;[^4]
 
 -   As carteiras tipo "B-Condutor Carro", "AB-Condutor Moto/Carro" são as mais comuns;
 
@@ -111,7 +114,7 @@ frota_gt
 
     -   22% na quantidade de habilitados "D-Condutor ônibus"
 
-[^3]: Dados do Ministério dos Transportes, Registro Nacional de Condutores Habilitados
+[^4]: Dados do Ministério dos Transportes, Registro Nacional de Condutores Habilitados
 
 ```{r}
 #| label: cnh_tabela
@@ -124,9 +127,9 @@ gt_condutores
 
 ## População
 
--   Entre 2014 e 2022, a populaço brasileira **cresceu** em 6%[^4]
+-   Entre 2014 e 2022, a populaço brasileira **cresceu** em 6%[^5]
 
-[^4]: Dados do IBGE, projeções populacionais
+[^5]: Dados do IBGE, projeções populacionais
 
 ```{r}
 #| label: pop_tabela
@@ -136,9 +139,9 @@ pop_gt
 
 ## Municipalização
 
--   Entre 2014 e 2022 houve um aumento de 26% na quantidade de municípios que se integraram ao Sistema Nacional de Trânsito[^5]
+-   Entre 2014 e 2022 houve um aumento de 26% na quantidade de municípios que se integraram ao Sistema Nacional de Trânsito[^6]
 
-[^5]: Dados do Ministério dos Transportes, Secretaria Nacional de Trânsito
+[^6]: Dados do Ministério dos Transportes, Secretaria Nacional de Trânsito
 
 ```{r}
 #| label: snt_tabela
