@@ -10,6 +10,7 @@ editor_options:
   chunk_output_type: console
 reference-location: margin
 citation-location: margin
+server: shiny
 ---
 
 ```{r}
@@ -23,6 +24,8 @@ library(gt)
 library(tidyverse)
 library(readxl)
 library(readODS)
+library(shinyWidgets)
+library(shiny)
 
 options(scipen = 999)
 
@@ -31,6 +34,7 @@ source("R/frota.R")
 source("R/condutores.R")
 source("R/populacao.R")
 source("R/municipalizacao.R")
+source('R/apendice.R')
 ```
 
 *Versão 2 - 02/05/2022*
@@ -159,4 +163,42 @@ pop_gt
 gt_snt
 ```
 
-## Apêndice - Óbitos por Municípios
+## Apêndice - Óbitos por Municípios {.tabset}
+
+**Filtros:**
+
+```{r}
+#| panel: fill
+#| warning: false
+
+selectInput(
+    "regiao", 
+    label = "Região", 
+    choices = unique(tabela_obitos_municipios$regiao),
+    multiple = TRUE,
+)
+
+selectInput(
+    "uf", 
+    label = "Estado", 
+    choices = sort(unique(tabela_obitos_municipios$uf)),
+    multiple = TRUE,
+)
+
+shinyWidgets::pickerInput(
+    "municipio",
+    label = "Município", 
+    choices = sort(unique(tabela_obitos_municipios$municipio)),
+    multiple = TRUE,
+    options = list(`actions-box` = TRUE)
+)
+
+```
+
+```{r}
+#| context: server
+```
+
+### Quantidade de óbitos
+
+### Taxa de óbitos por 100 mil habitantes

@@ -33,3 +33,5 @@ tabela_obitos_municipios <-
     replace_na(list(n = 0)) |> 
     rename(obitos = n) |> 
     mutate(taxa_pop = obitos / populacao * 100000)
+
+unique(tabela_obitos_municipios$municipio)
