@@ -33,6 +33,12 @@ source("R/populacao.R")
 source("R/municipalizacao.R")
 ```
 
+*Versão 2 - 02/05/2022*
+
+**Autor:** Pedro Augusto Borges
+
+**Código-fonte**: [github.com/pabsantos/dados-ma-2023](https://github.com/pabsantos/dados-ma-2023)
+
 ## Óbitos
 
 -   Considerando o período da primeira Década de Ação pela Segurança no Trânsito (entre 2011 e 2020), houve um **total** de 382.801 óbitos como consequência de sinistros de trânsito[^1].
