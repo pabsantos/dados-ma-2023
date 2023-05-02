@@ -119,9 +119,6 @@ datasus_sim |>
     count(sexo_vitima) |> 
     drop_na()
 
-366096 / (77686 + 366096)
-
-
 piramide_plot <- 
     datasus_sim |>
     filter(ano_ocorrencia > 2010) |> 

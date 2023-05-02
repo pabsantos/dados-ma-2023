@@ -2,18 +2,30 @@ frota_names <- list.files("data/", pattern = "^frota")
 frota_paths <- paste0("data/", frota_names)
 
 frota_total <- 
-    map(frota_paths, read_excel, range = "B3:B4") |> reduce(bind_rows)
+    map(frota_paths, read_excel, range = "B3:W4") |> reduce(bind_rows)
 
 frota_ano <- c(2014, 2018, 2015, 2016, 2017, 2019, 2022, 2020, 2021, 2013)
 
 tabela_frota <- frota_total |> 
+    clean_names() |> 
     add_column(ano = frota_ano) |> 
     arrange(ano) |> 
-    mutate(var_anual = (TOTAL - lag(TOTAL)) / lag(TOTAL)) |> 
-    replace_na(list(var_anual = 0)) |>
-    mutate(var_anual = scales::percent(var_anual, decimal.mark = ",")) |> 
-    select(ano, TOTAL, var_anual) |> 
-    filter(ano != 2013)
+    mutate(
+        `Automóvel` = automovel + caminhonete + camioneta + utilitario,
+        `Motocicleta` = motocicleta + motoneta + quadriciclo + triciclo +
+            ciclomotor,
+        `Ônibus` = onibus + microonibus,
+        `Caminhão` = caminhao + caminhao_trator + chassi_plataforma + reboque +
+            semi_reboque,
+        `Outros` = bonde + side_car + outros + trator_esteira + trator_rodas
+    ) |> 
+    select(
+        ano, `Automóvel`, `Motocicleta`, `Ônibus`, `Caminhão`, `Outros`, 
+        Total = total
+    ) |> 
+    pivot_longer(-ano, names_to = "tipo", values_to = "n") |> 
+    pivot_wider(names_from = ano, values_from = n) |> 
+    mutate(var_perc = (`2022` - `2013`) / `2013`)
 
 frota_gt <- tabela_frota |> 
     gt(rowname_col = "ano") |> 
