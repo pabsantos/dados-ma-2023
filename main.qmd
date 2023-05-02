@@ -83,6 +83,10 @@ ggplotly(piramide_plot)
 ## Frota
 
 -   Entre 2014 e 2022 houve um **aumento** de aproximadamente 33% na frota total do Brasil[^3]
+-   Os tipos de veículos com as **maiores** taxas de crescimento foram:
+    -   Caminhões - aumento de aproximadamente 39%
+    -   Motocicletas - aumento de aproximadamente 37%
+    -   Automóveis - aumento de aproximadamente 31%
 
 [^3]: Dados do Ministério dos Transportes, Registro Nacional de Veículos Automotores
 

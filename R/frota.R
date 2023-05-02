@@ -10,6 +10,7 @@ tabela_frota <- frota_total |>
     clean_names() |> 
     add_column(ano = frota_ano) |> 
     arrange(ano) |> 
+    filter(ano > 2013) |> 
     mutate(
         `Automóvel` = automovel + caminhonete + camioneta + utilitario,
         `Motocicleta` = motocicleta + motoneta + quadriciclo + triciclo +
@@ -25,20 +26,36 @@ tabela_frota <- frota_total |>
     ) |> 
     pivot_longer(-ano, names_to = "tipo", values_to = "n") |> 
     pivot_wider(names_from = ano, values_from = n) |> 
-    mutate(var_perc = (`2022` - `2013`) / `2013`)
+    mutate(var_perc = (`2022` - `2014`) / `2014`)
 
-frota_gt <- tabela_frota |> 
-    gt(rowname_col = "ano") |> 
+frota_gt <- 
+    tabela_frota |>
+    gt(rowname_col = "tipo") |> 
     cols_label(
-        ano = "Ano",
-        TOTAL = "Frota",
-        var_anual = "Variação anual"
+        # ano = "Ano",
+        # TOTAL = "Frota",
+        var_perc = "Variação total"
     ) |> 
     fmt_number(
-        columns = TOTAL,
+        columns = -var_perc,
         sep_mark = ".",
         dec_mark = ",",
         decimals = 0
+    ) |> 
+    data_color(
+        columns = `2014`:`2022`,
+        palette = "Blues",
+        rows = tipo != "Total"
+    ) |> 
+    fmt_percent(
+        columns = var_perc,
+        decimals = 2,
+        dec_mark = ",",
+        sep_mark = "."
+    ) |> 
+    data_color(
+        columns = var_perc,
+        palette = "Greens"
     )
 
 plot_frota <- tabela_frota |> 
