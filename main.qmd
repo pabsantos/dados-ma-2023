@@ -61,11 +61,11 @@ indice_gt
 
 ### Classificação por Modal
 
--   Considerando o **total** de óbitos entre 2011 e 2020, os modais que apresentaram as **maiores quantidades** de óbitos foram:
-    -   Motocicleta: Quase 120 mil óbitos;
-    -   Automóvel: Quase 90 mil óbitos;
-    -   Pedestre: Pouco mais de 70 mil óbitos
--   Quase 80 mil óbitos foram classificados como "Outros". Isso indica uma situação grave no registro dessas declarações de óbito, em que na maioria das vezes não foi possível identificar ou ignorou-se o modal da vítima do sinistro
+-   Considerando o **total** de óbitos entre 2011 e 2022, os modais que apresentaram as **maiores quantidades** de óbitos foram:
+    -   Motocicleta: Mais de 140 mil óbitos;
+    -   Automóvel: Mais de 100 mil óbitos;
+    -   Pedestre: Quase 80 mil óbitos
+-   Mais de 90 mil óbitos foram classificados como "Outros". Isso indica uma situação grave no registro dessas declarações de óbito, em que na maioria das vezes não foi possível identificar ou ignorou-se o modal da vítima do sinistro
 
 ```{r obitos_modal}
 modais_gt
