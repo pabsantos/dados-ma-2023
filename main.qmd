@@ -158,3 +158,5 @@ pop_gt
 
 gt_snt
 ```
+
+## Apêndice - Óbitos por Municípios
