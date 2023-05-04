@@ -45,9 +45,8 @@ source("R/municipalizacao.R")
 
 [^1]: Ministério da Saúde, Sistema de Informações de Mortes (SIM)
 
-```{=html}
 <!-- -->
-```
+
 -   Considerando o período da primeira Década de Ação pela Segurança no Trânsito (entre 2011 e 2020), houve um **total** de 382.801 óbitos como consequência de sinistros de trânsito[^2].
 -   Considerando o período de vigência do Movimento Maio Amarelo (a partir de 2014), houve uma redução na quantidade anual de mortes em 32%, entre 2014 e 2022[^3]
 
