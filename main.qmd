@@ -117,7 +117,7 @@ frota_gt
 
 -   Entre 2014 e 2022, houve um **aumento** de:
 
-    -   52% na quantidade de habilitados "AB"
+    -   52% na quantidade de habilitados "AB-Conduutor Moto/Carro"
 
     -   36% na quantidade de habilitados "AE-Condutor Moto/Carreta"
 
