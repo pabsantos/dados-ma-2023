@@ -41,12 +41,19 @@ source("R/municipalizacao.R")
 
 ## Óbitos
 
--   Considerando o período da primeira Década de Ação pela Segurança no Trânsito (entre 2011 e 2020), houve um **total** de 382.801 óbitos como consequência de sinistros de trânsito[^1].
--   Considerando o período de vigência do Movimento Maio Amarelo (a partir de 2014), houve uma redução na quantidade anual de mortes em 32%, entre 2014 e 2022[^2]
+-   Entre 2014 e 2019 houve uma tendência de redução no numero de mortes no trânsito brasileiro. Os anos de 2020 e 2021 apresentaram um aumento nessa quantidade.[^1]
 
-[^1]: Dados do Ministério da Saúde, Sistema de Informações de Mortalidade (SIM)
+[^1]: Ministério da Saúde, Sistema de Informações de Mortes (SIM)
 
-[^2]: Os dados de 2021 são **preliminares** e os dados de 2022 são uma **prévia**. Esses números não estão consolidados e estão sujeitos a mudança.
+```{=html}
+<!-- -->
+```
+-   Considerando o período da primeira Década de Ação pela Segurança no Trânsito (entre 2011 e 2020), houve um **total** de 382.801 óbitos como consequência de sinistros de trânsito[^2].
+-   Considerando o período de vigência do Movimento Maio Amarelo (a partir de 2014), houve uma redução na quantidade anual de mortes em 32%, entre 2014 e 2022[^3]
+
+[^2]: Dados do Ministério da Saúde, Sistema de Informações de Mortalidade (SIM)
+
+[^3]: Os dados de 2022 são uma **prévia**. Esses números não estão consolidados e estão sujeitos a mudança.
 
 ```{r obitos_br}
 p1 <- make_obito_plot()
@@ -55,11 +62,11 @@ ggplotly(p1)
 
 ### Comparação entre Estados
 
-Considerando os índices de óbitos por 100 mil habitantes, os estados com os **maiores valores** são, em 2020:
+Considerando os índices de óbitos por 100 mil habitantes, os estados com os **maiores valores** são, em 2021:
 
--   Mato Grosso: 32,18;
--   Tocantins: 30,64;
--   Piauí: 29,44.
+-   Mato Grosso: 35,29;
+-   Tocantins: 34,00;
+-   Piauí: 28,73.
 
 ```{r obitos_uf}
 indice_gt
@@ -70,7 +77,7 @@ indice_gt
 -   Considerando o **total** de óbitos entre 2011 e 2022, os modais que apresentaram as **maiores quantidades** de óbitos foram:
     -   Motocicleta: Mais de 140 mil óbitos;
     -   Automóvel: Mais de 100 mil óbitos;
-    -   Pedestre: Quase 80 mil óbitos
+    -   Pedestre: Mais de 80 mil óbitos
 -   Mais de 90 mil óbitos foram classificados como "Outros". Isso indica uma situação grave no registro dessas declarações de óbito, em que na maioria das vezes não foi possível identificar ou ignorou-se o modal da vítima do sinistro
 
 ```{r obitos_modal}
@@ -88,13 +95,13 @@ ggplotly(piramide_plot)
 
 ## Frota
 
--   Entre 2014 e 2022 houve um **aumento** de aproximadamente 33% na frota total do Brasil[^3]
+-   Entre 2014 e 2022 houve um **aumento** de aproximadamente 33% na frota total do Brasil[^4]
 -   Os tipos de veículos com as **maiores** taxas de crescimento foram:
     -   Caminhões - aumento de aproximadamente 39%
     -   Motocicletas - aumento de aproximadamente 37%
     -   Automóveis - aumento de aproximadamente 31%
 
-[^3]: Dados do Ministério dos Transportes, Registro Nacional de Veículos Automotores
+[^4]: Dados do Ministério dos Transportes, Registro Nacional de Veículos Automotores
 
 ```{r frota_tabela}
 
@@ -104,7 +111,7 @@ frota_gt
 
 ## Condutores Habilitados
 
--   Em 2022, o Brasil atingiu quase 80 milhões de condutores, um **aumento** de 28% em comparaço com 2014;[^4]
+-   Em 2022, o Brasil atingiu quase 80 milhões de condutores, um **aumento** de 28% em comparaço com 2014;[^5]
 
 -   As carteiras tipo "B-Condutor Carro", "AB-Condutor Moto/Carro" são as mais comuns;
 
@@ -124,7 +131,7 @@ frota_gt
 
     -   22% na quantidade de habilitados "D-Condutor ônibus"
 
-[^4]: Dados do Ministério dos Transportes, Registro Nacional de Condutores Habilitados
+[^5]: Dados do Ministério dos Transportes, Registro Nacional de Condutores Habilitados
 
 ```{r}
 #| label: cnh_tabela
@@ -137,9 +144,9 @@ gt_condutores
 
 ## População
 
--   Entre 2014 e 2022, a populaço brasileira **cresceu** em 6%[^5]
+-   Entre 2014 e 2022, a populaço brasileira **cresceu** em 6%[^6]
 
-[^5]: Dados do IBGE, projeções populacionais
+[^6]: Dados do IBGE, projeções populacionais
 
 ```{r}
 #| label: pop_tabela
@@ -149,9 +156,9 @@ pop_gt
 
 ## Municipalização
 
--   Entre 2014 e 2022 houve um aumento de 26% na quantidade de municípios que se integraram ao Sistema Nacional de Trânsito[^6]
+-   Entre 2014 e 2022 houve um aumento de 26% na quantidade de municípios que se integraram ao Sistema Nacional de Trânsito[^7]
 
-[^6]: Dados do Ministério dos Transportes, Secretaria Nacional de Trânsito
+[^7]: Dados do Ministério dos Transportes, Secretaria Nacional de Trânsito
 
 ```{r}
 #| label: snt_tabela
