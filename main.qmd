@@ -33,11 +33,11 @@ source("R/populacao.R")
 source("R/municipalizacao.R")
 ```
 
-*Versão 2 - 02/05/2022*
+![](img/Prancheta%201%20c%C3%B3pia%202PNG.png){fig-align="left" width="300"}
+
+*Versão 3 - 04/05/2022*
 
 **Autor:** Pedro Augusto Borges
-
-**Código-fonte**: [github.com/pabsantos/dados-ma-2023](https://github.com/pabsantos/dados-ma-2023)
 
 ## Óbitos
 
