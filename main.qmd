@@ -6,6 +6,7 @@ format:
     toc-title: Conteúdo
 editor: visual
 echo: false
+warning: false
 editor_options: 
   chunk_output_type: console
 reference-location: margin
@@ -23,6 +24,7 @@ library(gt)
 library(tidyverse)
 library(readxl)
 library(readODS)
+library(DT)
 
 options(scipen = 999)
 
@@ -163,4 +165,70 @@ pop_gt
 #| label: snt_tabela
 
 gt_snt
+```
+
+## Apêndice - Tabela de Municípios
+
+```{r}
+#| label: tab-municipios
+
+populacao_municipios <- read_csv("data/pop_mun_ibge.csv")
+
+tab_pop_municipios <- 
+    populacao_municipios |> 
+    mutate(
+        cod_muni = as.character(cod_muni),
+        cod_muni = str_sub(cod_muni, 1, 6)
+    ) |> 
+    separate(Município, sep = " \\(", into = c("municipio", "uf")) |> 
+    mutate(
+        uf = str_remove(uf, "\\)"),
+        regiao = case_match(
+            str_sub(cod_muni, 1, 1),
+            "1" ~ "Norte",
+            "2" ~ "Nordeste",
+            "3" ~ "Sudeste",
+            "4" ~ "Sul",
+            "5" ~ "Centro-Oeste"
+        )
+    ) |> 
+    pivot_longer(`2011`:`2021`, names_to = "ano", values_to = "populacao") |> 
+    mutate(ano = as.double(ano))
+
+obitos_municipios <- datasus_sim |> 
+    count(cod_municipio, ano_ocorrencia)
+
+tabela_obitos_municipios <- 
+    tab_pop_municipios |> 
+    left_join(
+        obitos_municipios,
+        by = join_by(cod_muni == cod_municipio, ano == ano_ocorrencia)
+    ) |> 
+    replace_na(list(n = 0)) |> 
+    rename(obitos = n) |> 
+    mutate(taxa_pop = obitos / populacao * 100000)
+
+tab_municipio_taxa <- tabela_obitos_municipios |> 
+    select(regiao, uf, municipio, ano, taxa_pop) |> 
+    group_by(regiao, uf, municipio) |> 
+    pivot_wider(names_from = ano, values_from = taxa_pop)
+
+DT::datatable(
+    tab_municipio_taxa,
+    rownames = FALSE,
+    colnames = c(
+        "Região", "UF", "Município", "2011", "2012", "2013", "2014",
+        "2015", "2016", "2017", "2018", "2019", "2020", "2021"
+    ),
+    # filter = "top",
+    options = list(
+        autoWidth = TRUE
+    ),
+    caption = "Taxa de mortes por 100 mil habitantes"
+) |> 
+    formatRound(
+        digits = 2,
+        dec.mark = ",",
+        columns = as.character(seq(2011, 2021, 1))
+    )
 ```
