@@ -37,20 +37,17 @@ source("R/municipalizacao.R")
 
 ![](img/Prancheta%201%20c%C3%B3pia%202PNG.png){fig-align="left" width="300"}
 
-*Versão 3 - 04/05/2022*
+*Versão 4 -10/05/2022*
 
 **Autor:** Pedro Augusto Borges
 
 ## Óbitos
 
 -   Entre 2014 e 2019 houve uma tendência de redução no numero de mortes no trânsito brasileiro. Os anos de 2020 e 2021 apresentaram um aumento nessa quantidade.[^1]
-
-[^1]: Ministério da Saúde, Sistema de Informações de Mortes (SIM)
-
-<!-- -->
-
 -   Considerando o período da primeira Década de Ação pela Segurança no Trânsito (entre 2011 e 2020), houve um **total** de 382.801 óbitos como consequência de sinistros de trânsito[^2].
 -   Considerando o período de vigência do Movimento Maio Amarelo (a partir de 2014), houve uma redução na quantidade anual de mortes em 32%, entre 2014 e 2022[^3]
+
+[^1]: Ministério da Saúde, Sistema de Informações de Mortes (SIM)
 
 [^2]: Dados do Ministério da Saúde, Sistema de Informações de Mortalidade (SIM)
 
