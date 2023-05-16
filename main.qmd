@@ -37,7 +37,7 @@ source("R/municipalizacao.R")
 
 ![](img/Prancheta%201%20c%C3%B3pia%202PNG.png){fig-align="left" width="300"}
 
-*Versão 4 -10/05/2022*
+*Versão 4 -16/05/2022*
 
 **Autor:** Pedro Augusto Borges
 

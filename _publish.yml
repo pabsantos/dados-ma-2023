@@ -1,0 +1,6 @@
+- source: main.qmd
+  quarto-pub:
+    - id: 5837fb1e-8f9d-437b-be96-bb23776b6c3e
+      url: 'https://quartopub.com/sites/pabsantos/dados-segurança-viária---ma-2023'
+    - id: b8118715-b2c3-4c36-ba86-e1de4b18db26
+      url: 'https://quartopub.com/sites/pabsantos/dados-seg-viaria'
